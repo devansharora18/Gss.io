@@ -70,7 +70,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
             ),
-            onPressed: () => AuthMethods().register(email: _email.text, password: _password.text),
+            onPressed: () {
+              AuthMethods()
+                  .register(email: _email.text, password: _password.text);
+            },
             child: const Text('Sign up'),
           ),
           const Spacer(),
