@@ -32,6 +32,14 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: Column(
         children: [
+          const Spacer(),
+          const CircleAvatar(
+            radius: 150,
+            backgroundImage: AssetImage('assets/man.jpg'),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           Center(
             child: SizedBox(
               width: 350,
@@ -40,7 +48,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   hintText: 'Enter your email',
                   textInputType: TextInputType.emailAddress),
             ),
-          )
+          ),
+          const Spacer(),
+          const Spacer(),
+          const Spacer(),
         ],
       ),
     );
