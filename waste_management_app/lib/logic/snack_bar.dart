@@ -5,7 +5,10 @@ showSnackBar(String content, BuildContext context) {
     behavior: SnackBarBehavior.floating,
     margin: EdgeInsets.only(
         bottom: MediaQuery.of(context).size.height - 110, right: 20, left: 20),
-    content: Text(content),
+    content: Text(
+      content,
+      style: const TextStyle(color: Colors.white),
+    ),
     backgroundColor: Colors.red,
   ));
 }
