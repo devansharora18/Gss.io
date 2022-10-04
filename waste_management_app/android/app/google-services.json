@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1039375223966",
+    "project_id": "myapp-art3mistical",
+    "storage_bucket": "myapp-art3mistical.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039375223966:android:dcd2956436d4c8fbdb7f8f",
+        "android_client_info": {
+          "package_name": "com.devansh.waste_management_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039375223966-3gvuvustpgsoi1j8kj2qthcgsj7aa8as.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbVsQqX91nOG3M_i6t3ZgScv2KU9GegyI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039375223966-3gvuvustpgsoi1j8kj2qthcgsj7aa8as.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
