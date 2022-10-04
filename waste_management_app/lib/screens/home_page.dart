@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:waste_management_app/screens/login_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -29,7 +30,12 @@ class HomePage extends StatelessWidget {
             child: const Text('Sign up with Email'),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+              );
+            },
             child: const Text('Login if already registered'),
           ),
           const Spacer(),
