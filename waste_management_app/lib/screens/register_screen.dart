@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:waste_management_app/widgets/text_input.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
@@ -28,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: AppBar(
             elevation: 0,
             backgroundColor: const Color.fromRGBO(30, 30, 46, 0.7),
-            title: const Center(child: Text('Login screen       '))),
+            title: const Center(child: Text('Register          '))),
       ),
       body: Column(
         children: [
@@ -57,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
               width: 350,
               child: TextInput(
                 textEditingController: _password,
-                hintText: 'Enter your password',
+                hintText: 'Create a password',
                 textInputType: TextInputType.text,
                 isPass: true,
               ),
@@ -71,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
               backgroundColor: Colors.green,
             ),
             onPressed: () {},
-            child: const Text('Login'),
+            child: const Text('Sign up'),
           ),
           const Spacer(),
           const Spacer(),
