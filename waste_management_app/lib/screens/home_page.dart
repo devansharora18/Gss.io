@@ -12,14 +12,21 @@ class HomePage extends StatelessWidget {
         child: AppBar(
             elevation: 0,
             backgroundColor: const Color.fromRGBO(30, 30, 46, 0.7),
-            title: const Center(child: Text('Home Page'))),
+            title: const Center(child: Text('Waste Management'))),
       ),
       body: Center(
         child: Column(children: [
           const Spacer(),
-          const Text('Sign in with Google'),
+          const CircleAvatar(
+            radius: 150,
+            backgroundImage: AssetImage('assets/man.jpg'),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           ElevatedButton(
               onPressed: () {}, child: const Text('Sign in with Google')),
+          const Spacer(),
           const Spacer(),
         ]),
       ),
