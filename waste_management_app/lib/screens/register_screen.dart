@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waste_management_app/logic/auth.dart';
 import 'package:waste_management_app/widgets/text_input.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -69,7 +70,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
             ),
-            onPressed: () {},
+            onPressed: () => AuthMethods().register(email: _email.text, password: _password.text),
             child: const Text('Sign up'),
           ),
           const Spacer(),
