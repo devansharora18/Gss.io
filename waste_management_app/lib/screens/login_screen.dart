@@ -49,6 +49,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   textInputType: TextInputType.emailAddress),
             ),
           ),
+          const SizedBox(
+            height: 15,
+          ),
+          Center(
+            child: SizedBox(
+              width: 350,
+              child: TextInput(
+                textEditingController: _password,
+                hintText: 'Enter your password',
+                textInputType: TextInputType.text,
+                isPass: true,
+              ),
+            ),
+          ),
+          const Spacer(),
+          const Spacer(),
+          const Spacer(),
           const Spacer(),
           const Spacer(),
           const Spacer(),
