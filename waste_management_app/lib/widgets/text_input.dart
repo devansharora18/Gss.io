@@ -28,6 +28,7 @@ class TextInput extends StatelessWidget {
       ),
       keyboardType: textInputType,
       obscureText: isPass,
+      autocorrect: false,
     );
   }
 }

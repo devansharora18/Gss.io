@@ -17,6 +17,8 @@ class AuthMethods {
         UserCredential user = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
 
+        print(user.user!.uid);
+
         await _firestore.collection('users').doc(user.user!.uid).set({
           'email': email,
           'uid': user.user!.uid,
