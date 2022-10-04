@@ -28,7 +28,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
     String res = await AuthMethods()
         .register(email: _email.text, password: _password.text);
-
+    setState(() {
+      _isLoading = false;
+    });
     if (res != 'success') {
       showSnackBar(res, context);
     }
@@ -84,8 +86,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
             ),
-            onPressed: () => RegisterUser,
-            child: const Text('Sign up'),
+            onPressed: () => RegisterUser(),
+            child: _isLoading ? const Center(child: CircularProgressIndicator(),) :const Text('Sign up'),
           ),
           const Spacer(),
           const Spacer(),
