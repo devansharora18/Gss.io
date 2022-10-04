@@ -24,20 +24,13 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          SizedBox(
-            width: 170,
-            child: Center(
-              child: ElevatedButton(
-                  onPressed: () {},
-                  child: Row(
-                    children: const [
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text('Sign up with Email'),
-                    ],
-                  )),
-            ),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text('Sign up with Email'),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text('Login if already registered'),
           ),
           const Spacer(),
           const Spacer(),
