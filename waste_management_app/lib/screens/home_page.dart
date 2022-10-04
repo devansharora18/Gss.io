@@ -25,21 +25,19 @@ class HomePage extends StatelessWidget {
             height: 20,
           ),
           SizedBox(
-            width: 200,
-            child: ElevatedButton(
-                onPressed: () {},
-                child: Row(
-                  children: const [
-                    CircleAvatar(
-                      radius: 10,
-                      backgroundImage: AssetImage('assets/google.png'),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text('Sign in with Google'),
-                  ],
-                )),
+            width: 170,
+            child: Center(
+              child: ElevatedButton(
+                  onPressed: () {},
+                  child: Row(
+                    children: const [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text('Sign up with Email'),
+                    ],
+                  )),
+            ),
           ),
           const Spacer(),
           const Spacer(),
