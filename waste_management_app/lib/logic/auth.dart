@@ -25,6 +25,8 @@ class AuthMethods {
         });
         res = 'success';
       }
+    } on FirebaseAuthException catch (e) {
+      res = e.code;
     } catch (e) {
       res = e.toString();
     }

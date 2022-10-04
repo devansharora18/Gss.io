@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:waste_management_app/logic/auth.dart';
+import 'package:waste_management_app/logic/snack_bar.dart';
 import 'package:waste_management_app/widgets/text_input.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -12,12 +13,25 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
+  bool _isLoading = false;
 
   @override
   void dispose() {
     _email.dispose();
     _password.dispose();
     super.dispose();
+  }
+
+  void RegisterUser() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String res = await AuthMethods()
+        .register(email: _email.text, password: _password.text);
+
+    if (res != 'success') {
+      showSnackBar(res, context);
+    }
   }
 
   @override
@@ -70,11 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
             ),
-            onPressed: () async {
-              String res = await AuthMethods()
-                  .register(email: _email.text, password: _password.text);
-              print(res);
-            },
+            onPressed: () => RegisterUser,
             child: const Text('Sign up'),
           ),
           const Spacer(),
