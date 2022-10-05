@@ -56,7 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         children: [
           const Spacer(),
           const CircleAvatar(
-            radius: 150,
+            radius: 120,
             backgroundImage: AssetImage('assets/man.jpg'),
           ),
           const SizedBox(
