@@ -108,7 +108,19 @@ class _UserScreenState extends State<UserScreen> {
                   onPressed: () => _selectImage(context),
                 ),
               )
-            : Container(),
+            : Column(
+                children: [
+                  Center(
+                    child: AspectRatio(
+                      aspectRatio: 700 / 700,
+                      child: Container(
+                          decoration: BoxDecoration(
+                              image:
+                                  DecorationImage(image: MemoryImage(_file!)))),
+                    ),
+                  ),
+                ],
+              ),
         const Spacer(),
       ]),
     );
