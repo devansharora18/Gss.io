@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:waste_management_app/logic/auth.dart';
 import 'package:waste_management_app/logic/snack_bar.dart';
+import 'package:waste_management_app/screens/selector_page.dart';
 import 'package:waste_management_app/widgets/text_input.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -33,6 +34,10 @@ class _LoginScreenState extends State<LoginScreen> {
       _isLoading = false;
     });
     if (res == 'success') {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const SelectorPage()),
+      );
     } else {
       showSnackBar(res, context);
     }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:waste_management_app/logic/auth.dart';
 import 'package:waste_management_app/logic/snack_bar.dart';
+import 'package:waste_management_app/screens/selector_page.dart';
 import 'package:waste_management_app/widgets/text_input.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -33,6 +34,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
     if (res != 'success') {
       showSnackBar(res, context);
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const SelectorPage()),
+      );
     }
   }
 
@@ -87,7 +93,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               backgroundColor: Colors.green,
             ),
             onPressed: () => RegisterUser(),
-            child: _isLoading ? const Center(child: CircularProgressIndicator(),) :const Text('Sign up'),
+            child: _isLoading
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : const Text('Sign up'),
           ),
           const Spacer(),
           const Spacer(),
