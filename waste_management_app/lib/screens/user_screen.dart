@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:waste_management_app/logic/image_picker.dart';
-import 'package:waste_management_app/screens/user_map.dart';
+import 'package:geolocator/geolocator.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
@@ -17,6 +17,25 @@ class UserScreen extends StatefulWidget {
 class _UserScreenState extends State<UserScreen> {
   String email = '';
   Uint8List? _file;
+  var locationMsg = "";
+
+  void getCurrentLocation() async {
+    LocationPermission permission;
+    permission = await Geolocator.requestPermission();
+    var position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+
+    var lastPosition = await Geolocator.getLastKnownPosition();
+
+    print(lastPosition);
+    setState(() {
+      locationMsg = '${position.latitude}, ${position.longitude}';
+    });
+  }
+
+  void proceed() {
+    getCurrentLocation();
+  }
 
   @override
   void initState() {
@@ -132,14 +151,11 @@ class _UserScreenState extends State<UserScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const UserMap()),
-                        );
-                      },
-                      child: const Text('Proceed')),
+                      onPressed: () =>
+                          locationMsg == "" ? getCurrentLocation() : proceed(),
+                      child: locationMsg == ""
+                          ? const Text('Grant Location')
+                          : const Text('Proceed')),
                 ],
               ),
         const Spacer(),
