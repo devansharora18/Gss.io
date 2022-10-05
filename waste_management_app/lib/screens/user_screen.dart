@@ -1,6 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:waste_management_app/logic/image_picker.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
@@ -27,6 +31,36 @@ class _UserScreenState extends State<UserScreen> {
     setState(() {
       email = (snap.data() as Map<String, dynamic>)['email'];
     });
+  }
+
+  _selectImage(BuildContext context) async {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            title: const Text('Complaint'),
+            content: const Text('Select photo to upload'),
+            actions: <CupertinoDialogAction>[
+              CupertinoDialogAction(
+                isDefaultAction: true,
+                onPressed: () async {
+                  Navigator.pop(context);
+                  Uint8List file = await imagePicker(
+                    ImageSource.camera,
+                  );
+                },
+                child: const Text('Take a photo'),
+              ),
+              CupertinoDialogAction(
+                isDestructiveAction: true,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Yes'),
+              ),
+            ],
+          );
+        });
   }
 
   @override
