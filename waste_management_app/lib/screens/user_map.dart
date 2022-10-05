@@ -36,6 +36,13 @@ class _UserMapState extends State<UserMap> {
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             userAgentPackageName: 'com.example.app',
           ),
+          MarkerLayer(
+            markers: [
+              Marker(
+                  point: LatLng(51.509364, -0.128928),
+                  builder: (ctx) => const Icon(Icons.pin_drop))
+            ],
+          )
         ],
       ),
     );
