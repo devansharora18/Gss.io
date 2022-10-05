@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:waste_management_app/models/user.dart' as model;
 
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -19,10 +20,15 @@ class AuthMethods {
 
         print(user.user!.uid);
 
-        await _firestore.collection('users').doc(user.user!.uid).set({
-          'email': email,
-          'uid': user.user!.uid,
-        });
+        model.User user_model = model.User(
+          uid: user.user!.uid,
+          email: email,
+        );
+
+        await _firestore
+            .collection('users')
+            .doc(user.user!.uid)
+            .set(user_model.toJson());
         res = 'success';
       }
     } on FirebaseAuthException catch (e) {
