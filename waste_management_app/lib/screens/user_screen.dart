@@ -111,12 +111,17 @@ class _UserScreenState extends State<UserScreen> {
             : Column(
                 children: [
                   Center(
-                    child: AspectRatio(
-                      aspectRatio: 700 / 700,
-                      child: Container(
-                          decoration: BoxDecoration(
-                              image:
-                                  DecorationImage(image: MemoryImage(_file!)))),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width - 60,
+                      child: AspectRatio(
+                        aspectRatio: 490 / 400,
+                        child: Container(
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: MemoryImage(_file!),
+                                    fit: BoxFit.fill,
+                                    alignment: FractionalOffset.topCenter))),
+                      ),
                     ),
                   ),
                 ],
