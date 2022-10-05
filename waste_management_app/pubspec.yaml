@@ -37,10 +37,13 @@ dependencies:
   firebase_storage: ^10.3.10
   flutter:
     sdk: flutter
+  flutter_map: ^3.0.0
+  flutter_map_location_marker: ^5.0.0+1
   flutter_polyline_points: ^1.0.0
   font_awesome_flutter: ^10.2.1
   google_maps_flutter: ^2.2.1
   image_picker: ^0.8.5+3
+  latlong2: ^0.8.1
 
 dev_dependencies:
   flutter_lints: ^2.0.0
