@@ -45,7 +45,15 @@ class _UserScreenState extends State<UserScreen> {
         ),
         Center(
           child: Text('Hey $email'),
-        )
+        ),
+        const Spacer(),
+        Center(
+          child: IconButton(
+            icon: const Icon(Icons.upload),
+            onPressed: () {},
+          ),
+        ),
+        const Spacer(),
       ]),
     );
   }
