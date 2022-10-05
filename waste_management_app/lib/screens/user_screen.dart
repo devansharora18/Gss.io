@@ -114,7 +114,7 @@ class _UserScreenState extends State<UserScreen> {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width - 60,
                       child: AspectRatio(
-                        aspectRatio: 490 / 400,
+                        aspectRatio: 480 / 400,
                         child: Container(
                             decoration: BoxDecoration(
                                 image: DecorationImage(
@@ -124,6 +124,15 @@ class _UserScreenState extends State<UserScreen> {
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                      ),
+                      onPressed: () {},
+                      child: const Text('Proceed')),
                 ],
               ),
         const Spacer(),
