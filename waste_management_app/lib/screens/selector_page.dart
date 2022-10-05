@@ -13,6 +13,37 @@ class SelectorPage extends StatelessWidget {
             backgroundColor: const Color.fromRGBO(30, 30, 46, 0.7),
             title: const Center(child: Text('Login screen'))),
       ),
+      body: Center(
+        child: Column(children: [
+          const Spacer(),
+          const CircleAvatar(
+            radius: 150,
+            backgroundImage: AssetImage('assets/man.jpg'),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+              ),
+              onPressed: () {},
+              child: const Text('Login as user')),
+          const SizedBox(
+            height: 10,
+          ),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+              ),
+              onPressed: () {},
+              child: const Text('Login as admin')),
+          const Spacer(),
+          const Spacer(),
+          const Spacer(),
+          const Spacer(),
+        ]),
+      ),
     );
   }
 }
