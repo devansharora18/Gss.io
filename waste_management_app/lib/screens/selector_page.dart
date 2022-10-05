@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waste_management_app/screens/user_screen.dart';
 
 class SelectorPage extends StatelessWidget {
   const SelectorPage({super.key});
@@ -27,7 +28,12 @@ class SelectorPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const UserScreen()),
+                );
+              },
               child: const Text('Login as user')),
           const SizedBox(
             height: 10,
@@ -40,8 +46,8 @@ class SelectorPage extends StatelessWidget {
               child: const Text('Login as admin')),
           const Spacer(),
           const Spacer(),
-          const Spacer(),
-          const Spacer(),
+          //const Spacer(),
+          //const Spacer(),
         ]),
       ),
     );
