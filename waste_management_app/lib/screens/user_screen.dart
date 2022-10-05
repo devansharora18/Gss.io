@@ -16,8 +16,9 @@ class UserScreen extends StatefulWidget {
 
 class _UserScreenState extends State<UserScreen> {
   String email = '';
+  String uid = "";
   Uint8List? _file;
-  var locationMsg = "";
+  var locationMsg = [];
 
   void getCurrentLocation() async {
     LocationPermission permission;
@@ -27,14 +28,19 @@ class _UserScreenState extends State<UserScreen> {
 
     var lastPosition = await Geolocator.getLastKnownPosition();
 
-    print(lastPosition);
+    print(position.latitude);
     setState(() {
-      locationMsg = '${position.latitude}, ${position.longitude}';
+      locationMsg = [position.latitude, position.longitude];
     });
   }
 
-  void proceed() {
+  void proceed(
+    String uid,
+    String email,
+  ) async {
     getCurrentLocation();
+    //print(locationMsg);
+    try {} catch (e) {}
   }
 
   @override
@@ -51,6 +57,7 @@ class _UserScreenState extends State<UserScreen> {
 
     setState(() {
       email = (snap.data() as Map<String, dynamic>)['email'];
+      uid = (snap.data() as Map<String, dynamic>)['uid'];
     });
   }
 
@@ -151,8 +158,9 @@ class _UserScreenState extends State<UserScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
                       ),
-                      onPressed: () =>
-                          locationMsg == "" ? getCurrentLocation() : proceed(),
+                      onPressed: () => locationMsg == ""
+                          ? getCurrentLocation()
+                          : proceed(uid, email),
                       child: locationMsg == ""
                           ? const Text('Grant Location')
                           : const Text('Proceed')),
