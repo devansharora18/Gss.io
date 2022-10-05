@@ -10,6 +10,8 @@ class UserScreen extends StatefulWidget {
 }
 
 class _UserScreenState extends State<UserScreen> {
+  String email = '';
+
   @override
   void initState() {
     super.initState();
@@ -22,7 +24,9 @@ class _UserScreenState extends State<UserScreen> {
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get();
 
-    print(snap.data());
+    setState(() {
+      email = (snap.data() as Map<String, dynamic>)['email'];
+    });
   }
 
   @override
@@ -35,6 +39,14 @@ class _UserScreenState extends State<UserScreen> {
             backgroundColor: const Color.fromRGBO(30, 30, 46, 0.7),
             title: const Center(child: Text('Waste Management     '))),
       ),
+      body: Column(children: [
+        const SizedBox(
+          height: 20,
+        ),
+        Center(
+          child: Text('Hey $email'),
+        )
+      ]),
     );
   }
 }
