@@ -15,6 +15,7 @@ class UserScreen extends StatefulWidget {
 
 class _UserScreenState extends State<UserScreen> {
   String email = '';
+  Uint8List? _file;
 
   @override
   void initState() {
@@ -48,15 +49,34 @@ class _UserScreenState extends State<UserScreen> {
                   Uint8List file = await imagePicker(
                     ImageSource.camera,
                   );
+                  setState(() {
+                    _file = file;
+                  });
                 },
                 child: const Text('Take a photo'),
               ),
               CupertinoDialogAction(
-                isDestructiveAction: true,
-                onPressed: () {
+                isDefaultAction: true,
+                onPressed: () async {
+                  Navigator.pop(context);
+                  Uint8List file = await imagePicker(
+                    ImageSource.gallery,
+                  );
+                  setState(() {
+                    _file = file;
+                  });
+                },
+                child: const Text('Choose from gallary'),
+              ),
+              CupertinoDialogAction(
+                isDefaultAction: true,
+                onPressed: () async {
                   Navigator.pop(context);
                 },
-                child: const Text('Yes'),
+                child: const Text(
+                  'Cancel',
+                  style: TextStyle(color: Colors.red),
+                ),
               ),
             ],
           );
@@ -81,12 +101,14 @@ class _UserScreenState extends State<UserScreen> {
           child: Text('Hey $email'),
         ),
         const Spacer(),
-        Center(
-          child: IconButton(
-            icon: const Icon(Icons.upload),
-            onPressed: () {},
-          ),
-        ),
+        _file == null
+            ? Center(
+                child: IconButton(
+                  icon: const Icon(Icons.upload),
+                  onPressed: () => _selectImage(context),
+                ),
+              )
+            : Container(),
         const Spacer(),
       ]),
     );
