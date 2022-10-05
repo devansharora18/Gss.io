@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:waste_management_app/logic/image_picker.dart';
+import 'package:waste_management_app/screens/user_map.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
@@ -131,7 +132,13 @@ class _UserScreenState extends State<UserScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const UserMap()),
+                        );
+                      },
                       child: const Text('Proceed')),
                 ],
               ),
