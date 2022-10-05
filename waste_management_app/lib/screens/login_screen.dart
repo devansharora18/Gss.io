@@ -33,7 +33,6 @@ class _LoginScreenState extends State<LoginScreen> {
       _isLoading = false;
     });
     if (res == 'success') {
-
     } else {
       showSnackBar(res, context);
     }
@@ -90,7 +89,11 @@ class _LoginScreenState extends State<LoginScreen> {
               backgroundColor: Colors.green,
             ),
             onPressed: () => loginUser(),
-            child: const Text('Login'),
+            child: _isLoading
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : const Text('Login'),
           ),
           const Spacer(),
           const Spacer(),
