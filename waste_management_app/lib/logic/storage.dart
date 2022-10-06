@@ -13,7 +13,7 @@ class Storage {
         _storage.ref().child(childName).child(_auth.currentUser!.uid);
 
     String id = Uuid().v1();
-    ref.child(id);
+    ref = ref.child(id);
 
     UploadTask uploadTask = ref.putData(file);
 
