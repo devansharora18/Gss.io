@@ -44,11 +44,11 @@ class _UserScreenState extends State<UserScreen> {
     String email,
     List cords,
   ) async {
-    locationMsg = await getCurrentLocation();
-    print(locationMsg);
     setState(() {
       _isLoading = true;
     });
+    locationMsg = await getCurrentLocation();
+    print(locationMsg);
     try {
       String res =
           await FirestoreMethods().uploadImage(locationMsg, _file!, uid, email);
@@ -149,6 +149,7 @@ class _UserScreenState extends State<UserScreen> {
             title: const Center(child: Text('Waste Management     '))),
       ),
       body: Column(children: [
+        _isLoading ? const LinearProgressIndicator() : Container(),
         const SizedBox(
           height: 20,
         ),
