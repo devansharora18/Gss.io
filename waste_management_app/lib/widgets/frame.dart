@@ -40,6 +40,9 @@ class Frame extends StatelessWidget {
           child: ElevatedButton(
             onPressed: () {},
             child: const Text('Open in maps'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green,
+            ),
           ),
         ),
       ]),
