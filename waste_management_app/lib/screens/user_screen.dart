@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:waste_management_app/logic/firestore.dart';
 import 'package:waste_management_app/logic/image_picker.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:waste_management_app/logic/snack_bar.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
@@ -37,10 +39,22 @@ class _UserScreenState extends State<UserScreen> {
   void proceed(
     String uid,
     String email,
+    List cords,
   ) async {
     getCurrentLocation();
     //print(locationMsg);
-    try {} catch (e) {}
+    try {
+      String res =
+          await FirestoreMethods().uploadImage(cords, _file!, uid, email);
+
+      if (res == 'success') {
+        showSnackBar(res, context, Colors.green);
+      } else {
+        showSnackBar(res, context, Colors.red);
+      }
+    } catch (e) {
+      showSnackBar(e.toString(), context, Colors.red);
+    }
   }
 
   @override
@@ -160,7 +174,7 @@ class _UserScreenState extends State<UserScreen> {
                       ),
                       onPressed: () => locationMsg == ""
                           ? getCurrentLocation()
-                          : proceed(uid, email),
+                          : proceed(uid, email, locationMsg),
                       child: locationMsg == ""
                           ? const Text('Grant Location')
                           : const Text('Proceed')),

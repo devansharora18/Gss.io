@@ -33,7 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       _isLoading = false;
     });
     if (res != 'success') {
-      showSnackBar(res, context);
+      showSnackBar(res, context, Colors.red);
     } else {
       Navigator.pushReplacement(
         context,

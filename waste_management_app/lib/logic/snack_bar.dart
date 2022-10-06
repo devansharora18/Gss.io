@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-showSnackBar(String content, BuildContext context) {
+showSnackBar(String content, BuildContext context, Color color) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     behavior: SnackBarBehavior.floating,
     margin: EdgeInsets.only(
@@ -9,6 +9,6 @@ showSnackBar(String content, BuildContext context) {
       content,
       style: const TextStyle(color: Colors.white),
     ),
-    backgroundColor: Colors.red,
+    backgroundColor: color,
   ));
 }

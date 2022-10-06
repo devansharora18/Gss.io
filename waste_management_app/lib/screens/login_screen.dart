@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
         MaterialPageRoute(builder: (context) => const SelectorPage()),
       );
     } else {
-      showSnackBar(res, context);
+      showSnackBar(res, context, Colors.red);
     }
   }
 
