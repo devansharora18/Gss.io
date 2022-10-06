@@ -25,6 +25,12 @@ class FirestoreMethods {
           cords: cords,
           imageId: imageId,
           imageUrl: imageUrl);
-    } catch (e) {}
+
+      _firestore.collection('images').doc(imageId).set(image.toJson());
+
+      res = 'success';
+    } catch (e) {
+      res = e.toString();
+    }
   }
 }
