@@ -6,7 +6,7 @@ class Frame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 20),
       child: Column(children: [
         Container(
           //decoration: BoxDecoration(
@@ -17,7 +17,13 @@ class Frame extends StatelessWidget {
           //),
           padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16)
               .copyWith(right: 0),
-          child: Text('Email Adress'),
+          child: Row(
+            children: [
+              Text('Email Address'),
+              const Spacer(),
+              IconButton(onPressed: () {}, icon: Icon(Icons.delete))
+            ],
+          ),
         ),
       ]),
     );
