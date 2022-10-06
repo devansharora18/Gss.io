@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Frame extends StatelessWidget {
-  const Frame({super.key});
+  final snap;
+  const Frame({super.key, required this.snap});
 
   @override
   Widget build(BuildContext context) {

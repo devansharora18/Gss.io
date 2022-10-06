@@ -27,7 +27,8 @@ class AdminUI extends StatelessWidget {
           }
           return ListView.builder(
             itemCount: snapshot.data!.docs.length,
-            itemBuilder: (context, index) => Frame(),
+            itemBuilder: (context, index) =>
+                Frame(snap: snapshot.data!.docs[index].data()),
           );
         },
       ),
