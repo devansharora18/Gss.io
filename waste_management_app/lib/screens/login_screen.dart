@@ -57,9 +57,10 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(45.3),
         child: AppBar(
+            centerTitle: true,
             elevation: 0,
             backgroundColor: const Color.fromRGBO(30, 30, 46, 0.7),
-            title: const Center(child: Text('Login screen       '))),
+            title: const Text('Login screen')),
       ),
       body: Column(
         children: [

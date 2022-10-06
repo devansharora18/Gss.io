@@ -144,9 +144,10 @@ class _UserScreenState extends State<UserScreen> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(45.3),
         child: AppBar(
+            centerTitle: true,
             elevation: 0,
             backgroundColor: const Color.fromRGBO(30, 30, 46, 0.7),
-            title: const Center(child: Text('Waste Management     '))),
+            title: const Text('Waste Management')),
       ),
       body: Column(children: [
         _isLoading ? const LinearProgressIndicator() : Container(),

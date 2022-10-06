@@ -49,9 +49,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(45.3),
         child: AppBar(
+            centerTitle: true,
             elevation: 0,
             backgroundColor: const Color.fromRGBO(30, 30, 46, 0.7),
-            title: const Center(child: Text('Register          '))),
+            title: const Text('Register')),
       ),
       body: Column(
         children: [
