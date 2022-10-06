@@ -24,7 +24,9 @@ class FirestoreMethods {
           uid: uid,
           cords: cords,
           imageId: imageId,
-          imageUrl: imageUrl);
+          imageUrl: imageUrl,
+          time: DateTime.now()
+          );
 
       _firestore.collection('images').doc(imageId).set(image.toJson());
 
