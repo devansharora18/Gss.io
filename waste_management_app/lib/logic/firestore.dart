@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+import 'package:uuid/uuid.dart';
 import 'package:waste_management_app/logic/storage.dart';
 import 'package:waste_management_app/models/image.dart';
 
@@ -16,12 +17,13 @@ class FirestoreMethods {
 
     try {
       String imageUrl = await Storage().uploadImage('images', file);
+      String imageId = const Uuid().v1();
 
       ImageModel image = ImageModel(
           email: email,
           uid: uid,
           cords: cords,
-          imageId: '',
+          imageId: imageId,
           imageUrl: imageUrl);
     } catch (e) {}
   }
