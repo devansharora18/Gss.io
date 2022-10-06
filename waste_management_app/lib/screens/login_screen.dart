@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
       _isLoading = false;
     });
     if (res == 'success') {
-      if (_email == 'garbagess.io@asia.com') {
+      if (_email.text == 'garbagess.io@asia.com') {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const AdminScreen()),

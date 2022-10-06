@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 
 class Frame extends StatelessWidget {
@@ -38,8 +39,10 @@ class Frame extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        Center(
-          child: ElevatedButton(
+        Row(children: [
+          Text(DateFormat.yMMMd().format(snap['time'].toDate())),
+          const Spacer(),
+          ElevatedButton(
             onPressed: () {
               List cords = snap['cords'];
               MapsLauncher.launchCoordinates(cords[0], cords[1]);
@@ -49,7 +52,7 @@ class Frame extends StatelessWidget {
               backgroundColor: Colors.green,
             ),
           ),
-        ),
+        ]),
       ]),
     );
   }
