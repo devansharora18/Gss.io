@@ -53,7 +53,7 @@ class _UserScreenState extends State<UserScreen> {
 
       if (res == 'success') {
         showSnackBar(res, context, Colors.green);
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const UserScreen()),
         );
