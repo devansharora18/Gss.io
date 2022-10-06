@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waste_management_app/widgets/frame.dart';
 
 class AdminUI extends StatelessWidget {
   const AdminUI({super.key});
@@ -14,6 +15,7 @@ class AdminUI extends StatelessWidget {
             backgroundColor: const Color.fromRGBO(30, 30, 46, 0.7),
             title: const Text('Administrator')),
       ),
+      body: Frame(),
     );
   }
 }
