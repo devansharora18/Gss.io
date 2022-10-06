@@ -32,7 +32,16 @@ class Frame extends StatelessWidget {
             'https://images.unsplash.com/photo-1664747477807-566fbc875bdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80',
             fit: BoxFit.cover,
           ),
-        )
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Center(
+          child: ElevatedButton(
+            onPressed: () {},
+            child: const Text('Open in maps'),
+          ),
+        ),
       ]),
     );
   }
