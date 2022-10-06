@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waste_management_app/screens/admin_ui.dart';
 import 'package:waste_management_app/screens/home_page.dart';
 
 import '../logic/logout.dart';
@@ -33,7 +34,7 @@ class AdminScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
+                  MaterialPageRoute(builder: (context) => const AdminUI()),
                 );
               },
               child: Text('Continue as Admin')),
@@ -46,7 +47,7 @@ class AdminScreen extends StatelessWidget {
               ),
               onPressed: () async {
                 await LogOut().logOut();
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const HomePage()),
                 );

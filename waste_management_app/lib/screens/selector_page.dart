@@ -72,7 +72,7 @@ class _SelectorPageState extends State<SelectorPage> {
               ),
               onPressed: () async {
                 await LogOut().logOut();
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const HomePage()),
                 );
