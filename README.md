@@ -30,4 +30,6 @@ https://user-images.githubusercontent.com/68769374/194421704-0f4cb214-afd4-4656-
 
 <hr>
 
-<h3> Installation <h3>
+<h3> Installation </h3>
+
+<a href = 'https://github.com/ART3MISTICAL/waste-management/releases/tag/v0.1.0'> click here </a>
