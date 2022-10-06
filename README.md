@@ -28,3 +28,6 @@ https://user-images.githubusercontent.com/68769374/194420622-b2a30041-a92a-4dd7-
 
 https://user-images.githubusercontent.com/68769374/194421704-0f4cb214-afd4-4656-a3d6-d08dc43ff4ac.mp4
 
+<hr>
+
+<h3> Installation <h3>
