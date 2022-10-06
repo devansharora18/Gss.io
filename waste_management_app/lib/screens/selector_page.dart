@@ -40,10 +40,10 @@ class SelectorPage extends StatelessWidget {
           ),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.red,
               ),
               onPressed: () {},
-              child: const Text('Login as admin')),
+              child: const Text('Logout')),
           const Spacer(),
           const Spacer(),
           //const Spacer(),
