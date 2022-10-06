@@ -13,6 +13,7 @@ class AdminUI extends StatelessWidget {
             backgroundColor: const Color.fromRGBO(30, 30, 46, 0.7),
             title: const Center(child: Text('Administrator     '))),
       ),
+      
     );
   }
 }
