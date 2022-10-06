@@ -45,6 +45,7 @@ dependencies:
   geolocator: ^9.0.2
   image_picker: ^0.8.5+3
   latlong2: ^0.8.1
+  maps_launcher: ^2.0.1
   uuid: ^3.0.6
 
 dev_dependencies:

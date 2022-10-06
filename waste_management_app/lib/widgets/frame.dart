@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maps_launcher/maps_launcher.dart';
 
 class Frame extends StatelessWidget {
   final snap;
@@ -20,7 +21,7 @@ class Frame extends StatelessWidget {
               .copyWith(right: 0),
           child: Row(
             children: [
-              Text('Email Address'),
+              Text(snap['email']),
               const Spacer(),
               IconButton(onPressed: () {}, icon: Icon(Icons.delete))
             ],
@@ -30,7 +31,7 @@ class Frame extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.3,
           width: double.infinity,
           child: Image.network(
-            'https://images.unsplash.com/photo-1664747477807-566fbc875bdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80',
+            snap['imageUrl'],
             fit: BoxFit.cover,
           ),
         ),
@@ -39,7 +40,10 @@ class Frame extends StatelessWidget {
         ),
         Center(
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              List cords = snap['cords'];
+              MapsLauncher.launchCoordinates(cords[0], cords[1]);
+            },
             child: const Text('Open in maps'),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
