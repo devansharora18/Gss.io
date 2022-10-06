@@ -8,8 +8,6 @@ import 'package:waste_management_app/logic/firestore.dart';
 import 'package:waste_management_app/logic/image_picker.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:waste_management_app/logic/snack_bar.dart';
-import 'package:waste_management_app/models/user.dart';
-import 'package:waste_management_app/screens/selector_page.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({super.key});
@@ -23,6 +21,7 @@ class _UserScreenState extends State<UserScreen> {
   String uid = "";
   Uint8List? _file;
   List locationMsg = [];
+  bool _isLoading = false;
 
   Future getCurrentLocation() async {
     LocationPermission permission;
@@ -47,9 +46,16 @@ class _UserScreenState extends State<UserScreen> {
   ) async {
     locationMsg = await getCurrentLocation();
     print(locationMsg);
+    setState(() {
+      _isLoading = true;
+    });
     try {
       String res =
           await FirestoreMethods().uploadImage(locationMsg, _file!, uid, email);
+
+      setState(() {
+        _isLoading = false;
+      });
 
       if (res == 'success') {
         showSnackBar(res, context, Colors.green);
