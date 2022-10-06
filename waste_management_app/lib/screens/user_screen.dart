@@ -24,7 +24,7 @@ class _UserScreenState extends State<UserScreen> {
   Uint8List? _file;
   List locationMsg = [];
 
-  void getCurrentLocation() async {
+  Future getCurrentLocation() async {
     LocationPermission permission;
     permission = await Geolocator.requestPermission();
     var position = await Geolocator.getCurrentPosition(
@@ -36,6 +36,8 @@ class _UserScreenState extends State<UserScreen> {
     setState(() {
       locationMsg = [position.latitude, position.longitude];
     });
+    locationMsg = [position.latitude, position.longitude];
+    return locationMsg;
   }
 
   void proceed(
@@ -43,11 +45,11 @@ class _UserScreenState extends State<UserScreen> {
     String email,
     List cords,
   ) async {
-    getCurrentLocation();
+    locationMsg = await getCurrentLocation();
     print(locationMsg);
     try {
       String res =
-          await FirestoreMethods().uploadImage(cords, _file!, uid, email);
+          await FirestoreMethods().uploadImage(locationMsg, _file!, uid, email);
 
       if (res == 'success') {
         showSnackBar(res, context, Colors.green);
