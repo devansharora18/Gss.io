@@ -1,10 +1,40 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:maps_launcher/maps_launcher.dart';
+import 'package:waste_management_app/logic/firestore.dart';
 
 class Frame extends StatelessWidget {
   final snap;
   const Frame({super.key, required this.snap});
+
+  delete(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            title: const Text('Delete'),
+            content: const Text('Delete this image'),
+            actions: <CupertinoDialogAction>[
+              CupertinoDialogAction(
+                isDefaultAction: true,
+                onPressed: () async {
+                  FirestoreMethods().deleteImage(snap['imageId']);
+                  Navigator.pop(context);
+                },
+                child: const Text('Yes', style: TextStyle(color: Colors.red)),
+              ),
+              CupertinoDialogAction(
+                isDefaultAction: false,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('No'),
+              ),
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +54,8 @@ class Frame extends StatelessWidget {
             children: [
               Text(snap['email']),
               const Spacer(),
-              IconButton(onPressed: () {}, icon: Icon(Icons.delete))
+              IconButton(
+                  onPressed: () => delete(context), icon: Icon(Icons.delete))
             ],
           ),
         ),

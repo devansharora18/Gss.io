@@ -25,8 +25,7 @@ class FirestoreMethods {
           cords: cords,
           imageId: imageId,
           imageUrl: imageUrl,
-          time: DateTime.now()
-          );
+          time: DateTime.now());
 
       _firestore.collection('images').doc(imageId).set(image.toJson());
 
@@ -35,5 +34,13 @@ class FirestoreMethods {
       res = e.toString();
     }
     return res;
+  }
+
+  Future<void> deleteImage(String imageId) async {
+    try {
+      await _firestore.collection('images').doc(imageId).delete();
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }
