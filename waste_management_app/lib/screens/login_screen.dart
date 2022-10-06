@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:waste_management_app/logic/auth.dart';
 import 'package:waste_management_app/logic/snack_bar.dart';
+import 'package:waste_management_app/screens/admin_screen.dart';
 import 'package:waste_management_app/screens/selector_page.dart';
 import 'package:waste_management_app/widgets/text_input.dart';
 
@@ -34,6 +35,12 @@ class _LoginScreenState extends State<LoginScreen> {
       _isLoading = false;
     });
     if (res == 'success') {
+      if (_email == 'garbagess.io@asia.com') {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const AdminScreen()),
+        );
+      }
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const SelectorPage()),

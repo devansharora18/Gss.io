@@ -1,8 +1,36 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:waste_management_app/logic/logout.dart';
+import 'package:waste_management_app/screens/home_page.dart';
 import 'package:waste_management_app/screens/user_screen.dart';
 
-class SelectorPage extends StatelessWidget {
+class SelectorPage extends StatefulWidget {
   const SelectorPage({super.key});
+
+  @override
+  State<SelectorPage> createState() => _SelectorPageState();
+}
+
+class _SelectorPageState extends State<SelectorPage> {
+  String email = '';
+
+  @override
+  void initState() {
+    super.initState();
+    getEmail();
+  }
+
+  void getEmail() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      email = (snap.data() as Map<String, dynamic>)['email'];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +62,7 @@ class SelectorPage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const UserScreen()),
                 );
               },
-              child: const Text('Login as user')),
+              child: Text('Continue as $email')),
           const SizedBox(
             height: 10,
           ),
@@ -42,7 +70,13 @@ class SelectorPage extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
               ),
-              onPressed: () {},
+              onPressed: () async {
+                await LogOut().logOut();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
               child: const Text('Logout')),
           const Spacer(),
           const Spacer(),

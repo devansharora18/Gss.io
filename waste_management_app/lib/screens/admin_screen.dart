@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:waste_management_app/screens/home_page.dart';
+
+import '../logic/logout.dart';
 
 class AdminScreen extends StatelessWidget {
   const AdminScreen({super.key});
@@ -12,6 +15,48 @@ class AdminScreen extends StatelessWidget {
             elevation: 0,
             backgroundColor: const Color.fromRGBO(30, 30, 46, 0.7),
             title: const Center(child: Text('Administrator'))),
+      ),
+      body: Center(
+        child: Column(children: [
+          const Spacer(),
+          const CircleAvatar(
+            radius: 150,
+            backgroundImage: AssetImage('assets/man.jpg'),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
+              child: Text('Continue as Admin')),
+          const SizedBox(
+            height: 10,
+          ),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+              ),
+              onPressed: () async {
+                await LogOut().logOut();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
+              child: const Text('Logout')),
+          const Spacer(),
+          const Spacer(),
+          //const Spacer(),
+          //const Spacer(),
+        ]),
       ),
     );
   }

@@ -32,7 +32,7 @@ class AuthMethods {
         res = 'success';
       }
     } on FirebaseAuthException catch (e) {
-      res = e.code;
+      res = e.toString();
     } catch (e) {
       res = e.toString();
     }

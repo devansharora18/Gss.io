@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             if (snapshot.hasData) {
-              if (snapshot.data!.email == 'garbagescansweep.io@mail.com') {
+              if (snapshot.data!.email == 'garbagess.io@asia.com') {
                 return AdminScreen();
               }
               return const SelectorPage();
