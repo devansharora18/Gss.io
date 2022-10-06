@@ -40,11 +40,12 @@ class _LoginScreenState extends State<LoginScreen> {
           context,
           MaterialPageRoute(builder: (context) => const AdminScreen()),
         );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const SelectorPage()),
+        );
       }
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const SelectorPage()),
-      );
     } else {
       showSnackBar(res, context, Colors.red);
     }
