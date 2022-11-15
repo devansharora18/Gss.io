@@ -3,8 +3,6 @@
 <h3> Intro </h3>
 This is a Flutter app powered by Firebase made as an hackathon project in under 3 days by Devansh Arora
 
-<a href='https://finalrepo-intdps.vercel.app/'>Click here for the product website</a>
-
 <hr>
 
 <h3> Functionality </h3>
