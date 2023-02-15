@@ -37,4 +37,4 @@ https://user-images.githubusercontent.com/68769374/194421704-0f4cb214-afd4-4656-
 <hr>
 
 <h3> Admin Side </h3>
-<a href="devansharora.official00@gmail.com">Connect with me</a>
+<a href="mailto:devansharora.official00@gmail.com">Connect with me</a>
