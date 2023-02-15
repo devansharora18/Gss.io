@@ -35,3 +35,6 @@ https://user-images.githubusercontent.com/68769374/194421704-0f4cb214-afd4-4656-
 <a href = 'https://github.com/ART3MISTICAL/waste-management/releases/tag/v0.1.0'> click here </a>
 
 <hr>
+
+<h3> Admin Side </h3>
+<a href="devansharora.official00@gmail.com">Connect with me</a>
